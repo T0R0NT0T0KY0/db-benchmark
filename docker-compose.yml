@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres-tests
+    shm_size: 4g
+    command:
+      - -c
+      - work_mem=256MB
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./ci-cd/volumes/postgres:/var/lib/postgresql/data
+    env_file: .env
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+

@@ -1,0 +1,61 @@
+{
+  "name": "db-denchmark",
+  "version": "1.37.3",
+  "description": "Database Benchmark",
+  "main": "./dist/main.js",
+  "source": "./src/main.ts",
+  "author": {
+    "name": "DTF",
+    "email": "Robbin-the-Bobbin@yandex.ru",
+    "url": "https://github.com/T0R0NT0T0KY0"
+  },
+  "scripts": {
+    "lint": "npx eslint \"{src,test}/**/*.ts\" --fix",
+    "build": "tsc --project ./tsconfig.json",
+    "start:dev": "node dist/index.js",
+    "prepare": "pnpm run build && husky install"
+  },
+  "type": "module",
+  "packageManager": "pnpm@9.15.2",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "tablemark": "^3.1.0",
+    "tinybench": "^3.1.1",
+    "dotenv": "^16.4.7",
+    "@faker-js/faker": "^9.4.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.0.0",
+    "@types/pg": "^8.11.11",
+    "@types/benchmark": "^2.1.5",
+    "@typescript-eslint/eslint-plugin": "7.8.0",
+    "@typescript-eslint/parser": "7.8.0",
+    "eslint": "9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2",
+    "source-map-support": "^0.5.21",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{ts,js}": "prettier --write"
+  }
+}

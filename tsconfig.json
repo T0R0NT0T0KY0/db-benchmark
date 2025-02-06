@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "module": "ES2022",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "paths": {
+      "#config/*": ["./src/config/*"],
+      "#instances/*": ["./src/instances/*"],
+      "#modules/*": ["./src/modules/*"],
+      "#types/*": ["./src/types/*"],
+    },
+  }
+}
