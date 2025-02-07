@@ -5,6 +5,7 @@ import { generateStatsData } from "./generate-stats-data.js";
 import { resetTable } from "./reset-table.js";
 import { StatsData } from "./types.js";
 import { upsertBatch } from "./upsert/batch-values.js";
+import { upsertCopy } from "./upsert/copy.js";
 import { upsertJsonArrayElements } from "./upsert/json-array-elements.js";
 import { upsertJsonPopulateRecordset } from "./upsert/json-populate-recordset.js";
 import { upsertJsonbArrayElements } from "./upsert/jsonb-array-elements.js";
@@ -86,6 +87,13 @@ const runBenchmark = async () => {
 			"JSONB Array Elements",
 			async () => {
 				await upsertJsonbArrayElements(data, tableName);
+			},
+			fnOpts
+		)
+		.add(
+			"Copy",
+			async () => {
+				await upsertCopy(data, tableName);
 			},
 			fnOpts
 		);

@@ -17,7 +17,6 @@ export const upsertBatch = async (data: StatsData[], tableName: string) => {
 		}).join(",");
 		const values = chunk.flatMap((row) => [row.organizationId, row.cardId, row.date, row.barcode, row.ordersCount, row.ordersAmount, row.allOrdersCount, row.allOrdersAmount, row.saleCount, row.saleAmount, row.logistic, row.commission, row.remains]);
 
-
 		await dbClient.query(
 			`INSERT INTO ${tableName} ("organizationId", "cardId", "date", "barcode", "ordersCount", "ordersAmount",
                              "allOrdersCount", "allOrdersAmount", "saleCount", "saleAmount", "logistic", "commission",
