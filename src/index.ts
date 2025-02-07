@@ -36,7 +36,13 @@ const runBenchmark = async () => {
 		},
 		beforeEach() {
 			console.log(`iteration: ${++index}`);
-			data = generateStatsData(10000);
+
+			if (index > 1) {
+				// add duplicates from previous insert
+				data = [...data.slice(0, 10_000), ...generateStatsData(20_000)];
+			} else {
+				data = generateStatsData(30000);
+			}
 		}
 	};
 
