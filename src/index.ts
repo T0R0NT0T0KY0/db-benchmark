@@ -99,7 +99,7 @@ const runBenchmark = async () => {
 		columns: Object.keys(table[0] as object).map((name) => ({ name, align: 'center' })),
 	});
 
-	const markdown = `# Benchmark 10_000 Elements \n\n${tableMd}`;
+	const markdown = `# Benchmark 30_000 Elements \n\n${tableMd}`;
 
 	await writeFile(`${process.cwd()}/benchmark.md`, markdown);
 

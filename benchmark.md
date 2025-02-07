@@ -1,4 +1,4 @@
-# Benchmark 10_000 Elements 
+# Benchmark 30_000 Elements 
 
 |        Task name         |  Latency avg (ns)   |      Latency med (ns)      | Throughput avg (ops/s) | Throughput med (ops/s) | Samples |
 | :----------------------: | :-----------------: | :------------------------: | :--------------------: | :--------------------: | :-----: |
