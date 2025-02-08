@@ -10,20 +10,20 @@ export const resetTable = async (tableName: string) => {
 		`
           CREATE TABLE ${tableName}
           (
-              "organizationId"  bigint            NOT NULL,
-              "cardId"          bigint            NOT NULL,
-              "date"            date              NOT NULL,
-              "barcode"         text              NOT NULL,
-              "ordersCount"     integer DEFAULT 0 NOT NULL,
-              "ordersAmount"    float   DEFAULT 0 NOT NULL,
-              "allOrdersCount"  integer DEFAULT 0 NOT NULL,
-              "allOrdersAmount" float   DEFAULT 0 NOT NULL,
-              "saleCount"       integer DEFAULT 0 NOT NULL,
-              "saleAmount"      float   DEFAULT 0 NOT NULL,
-              "logistic"        float   DEFAULT 0 NOT NULL,
-              "commission"      float   DEFAULT 0 NOT NULL,
-              "remains"         integer DEFAULT 0 NOT NULL,
-              PRIMARY KEY ("cardId", "date", "barcode")
+              "organization_id"  bigint            NOT NULL,
+              "card_id"          bigint            NOT NULL,
+              "date"             date              NOT NULL,
+              "barcode"          text              NOT NULL,
+              "orders_count"     integer DEFAULT 0 NOT NULL,
+              "orders_amount"    float   DEFAULT 0 NOT NULL,
+              "all_orders_count"  integer DEFAULT 0 NOT NULL,
+              "all_orders_amount" float   DEFAULT 0 NOT NULL,
+              "sale_count"       integer DEFAULT 0 NOT NULL,
+              "sale_amount"      float   DEFAULT 0 NOT NULL,
+              "logistic"         float   DEFAULT 0 NOT NULL,
+              "commission"       float   DEFAULT 0 NOT NULL,
+              "remains"          integer DEFAULT 0 NOT NULL,
+              PRIMARY KEY ("card_id", "date", "barcode")
           )`,
 	);
 };

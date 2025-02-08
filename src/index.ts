@@ -8,8 +8,10 @@ import { upsertBatch } from "./upsert/batch-values.js";
 import { upsertCopy } from "./upsert/copy.js";
 import { upsertJsonArrayElements } from "./upsert/json-array-elements.js";
 import { upsertJsonPopulateRecordset } from "./upsert/json-populate-recordset.js";
+import { upsertJsonToRecordset } from "./upsert/json-to-recordset.js";
 import { upsertJsonbArrayElements } from "./upsert/jsonb-array-elements.js";
 import { upsertJsonbPopulateRecordset } from "./upsert/jsonb-populate-recordset.js";
+import { upsertJsonbToRecordset } from "./upsert/jsonb-to-recordset.js";
 import { upsertSingleRow } from "./upsert/single-row.js";
 import tablemark from "tablemark"
 
@@ -40,7 +42,7 @@ const runBenchmark = async () => {
 
 			if (index > 1) {
 				// add duplicates from previous insert
-				data = [...data.slice(0, 10_000), ...generateStatsData(20_000)];
+				data = [...data.slice(0, 20_000), ...generateStatsData(10_000)];
 			} else {
 				data = generateStatsData(30000);
 			}
@@ -94,6 +96,20 @@ const runBenchmark = async () => {
 			"Copy",
 			async () => {
 				await upsertCopy(data, tableName);
+			},
+			fnOpts
+		)
+		.add(
+			"JSON To Recordset",
+			async () => {
+				await upsertJsonToRecordset(data, tableName);
+			},
+			fnOpts
+		)
+		.add(
+			"JSONB To Recordset",
+			async () => {
+				await upsertJsonbToRecordset(data, tableName);
 			},
 			fnOpts
 		);
